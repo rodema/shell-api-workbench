@@ -1,0 +1,61 @@
+
+  <div>
+    <h1>Shell API workbench extension</h1>
+    <h2 id="info"></h2>
+  </div>
+
+  <form name="APITestForm">
+    <div>
+      API Event
+     <select
+        name="ApiSentEvent"
+        id="ApiSentEvent"
+        [(ngModel)]="apiSentEvent"
+        (change)='onApiEventChanged(apiSentEvent)'>
+      <option *ngFor="let apiEvent of apiAllEventList; let i = index" [value]="apiAllEventList[i].id"
+         [class] = "apiAllEventList[i].isRegistered === true ? 'registeredEvent' : 'unregisteredEvent' " >
+        {{apiAllEventList[i].name}}
+      </option>
+     </select>
+
+    </div>
+  <div>
+    Command Payload<br>
+  <textarea id = "cmdPayload" name="cmdPayload" rows="10" cols="40" class="input-field" [(ngModel)]="cmdPayload">
+  </textarea>
+  </div>
+</form>
+
+  <button  (click)="runCmd()">
+    Emit Event
+  </button>
+  <br>
+  <div *ngIf="!eventHandler[apiSentEvent]">
+
+  <button  (click)="runRegister()">
+    Register Eventhandler
+  </button>
+ </div>
+
+ <div *ngIf="eventHandler[apiSentEvent]">
+
+  <button  (click)="runUnRegister()">
+    Unregister Eventhandler
+  </button>
+ </div>
+
+ <br>
+ <br>
+
+ <div>
+  Event log<br>
+<textarea id = "output" name="output" rows="10" cols="40" class="input-field" [(ngModel)]="output">
+</textarea>
+<br>
+<button  (click)="clearLog()">
+  clear log
+</button>
+</div>
+
+ <br>
+ <a href="https://sap.github.io/fsm-shell/#/" target="_blank">SDK Documentation</a>
