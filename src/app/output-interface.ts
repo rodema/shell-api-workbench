@@ -1,3 +1,3 @@
-export interface OutputInterface{
-   writeLog(newLogLine : string)
+export interface OutputInterface {
+   writeLog(newLogLine: string);
 }

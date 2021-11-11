@@ -1,0 +1,62 @@
+
+.error-message-container {
+  box-sizing: border-box;
+  width: 95%;
+  background-color: rgb(255,235,235);
+  border-color: rgb(50,54,58);
+  box-shadow: rgba(0,0,0,0.42);
+  border: 1px solid rgb(50,54,58);
+  margin-bottom: 5px;
+  padding-left: 5px;
+}
+
+.info-message-container {
+  box-sizing: border-box;
+  width: 95%;
+  background-color: rgb(225, 245, 230);
+  border-color: rgb(50,54,58);
+  box-shadow: rgba(0,0,0,0.42);
+  border: 1px solid rgb(50,54,58);
+  margin-bottom: 5px;
+  padding-left: 5px;
+}
+
+.error-title {
+  color: #993333;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.info-title {
+  color: #030000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.error-message {
+  color: #993333;
+  font-size: 14px;
+}
+
+.info-message {
+  color: #030000;
+  font-size: 14px;
+}
+
+.child-error-message {
+    display: flex;
+    flex-direction: column;
+    color: #993333;
+    padding-left: 5px;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.child-info-message {
+    display: flex;
+    flex-direction: column;
+    color: #030000;
+    padding-left: 5px;
+    font-size: 12px;
+    margin-top: 4px;
+}

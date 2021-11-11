@@ -1,0 +1,19 @@
+{
+    "video": false,
+    "requestTimeout": 20000,
+    "defaultCommandTimeout": 10000,
+    "viewportWidth": 1920,
+    "viewportHeight": 1080,
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "configFile": "cypress/reporter-config.json"
+    },
+    "screenshotsFolder": "cypress/report/mochawesome-report/assets",
+    "downloadsFolder": "cypress/downloads",
+    "watchForFileChanges": false,
+    "chromeWebSecurity": false,
+    "retries": {
+        "runMode": 2,
+        "openMode": 1
+    }
+}

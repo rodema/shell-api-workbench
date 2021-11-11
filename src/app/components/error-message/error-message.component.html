@@ -1,0 +1,13 @@
+
+<div class="outer-error-message-container" *ngIf="error.msg">
+<div [class] = "messageLevel === 'Info' ? 'info-message-container' : 'error-message-container'">
+  <span [class] = "messageLevel === 'Info' ? 'info-error-title' : 'error-title'">
+    {{ messageTitle }}</span><br>
+  <span [class] = "messageLevel === 'Info' ? 'info-message' : 'error-message'">
+    {{ genericMessage }}</span>
+  <div *ngIf="childMessages.length > 0">
+    <span [class] = "messageLevel === 'Info' ? 'child-info-message' : 'child-error-message'"
+      *ngFor="let childMessage of childMessages">{{ childMessage }}</span>
+  </div>
+</div>
+</div>

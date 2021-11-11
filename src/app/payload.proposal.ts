@@ -1,11 +1,11 @@
 import { SHELL_EVENTS } from 'fsm-shell';
 
-export class PayloadProposal{
+export class PayloadProposal {
    public event: string;
    public payload: string;
 }
 
-export const payloadProposalList :Array<PayloadProposal> = [
+export const payloadProposalList: Array<PayloadProposal> = [
 { event: SHELL_EVENTS.Version1.REQUIRE_CONTEXT,
   payload: `{
     "clientIdentifier": string,
@@ -63,10 +63,7 @@ export const payloadProposalList :Array<PayloadProposal> = [
   payload: `No request payload need to be provided`
 },
 { event: SHELL_EVENTS.Version1.SET_VIEW_STATE,
-  payload: `{
-    "key": string,
-    "value": T
-  }`
+  payload: `View state key`
 },
 { event: SHELL_EVENTS.Version1.TO_APP,
   payload: `{
@@ -74,4 +71,4 @@ export const payloadProposalList :Array<PayloadProposal> = [
     "anydata2": object
   }`
 },
-]
+];

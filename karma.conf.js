@@ -1,3 +1,8 @@
+if (process.env.SET_HEADLESS_CHROME) {
+  // use puppeteer on CI
+  process.env.CHROME_BIN = require('puppeteer').executablePath();
+}
+
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
@@ -25,7 +30,13 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['MyChromeHeadless'], // use Chrome to see UI, available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    customLaunchers: {
+      MyChromeHeadless: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     singleRun: false,
     restartOnFileChange: true
   });

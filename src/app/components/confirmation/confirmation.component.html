@@ -1,0 +1,29 @@
+<fd-dialog>
+  <fd-dialog-header>
+      <h1 fd-title>{{ data.title }}</h1>
+  </fd-dialog-header>
+  <fd-dialog-body>
+      <div class="confirmation-dialog-message">
+        {{ data.message  }}
+      </div>
+
+      <ul style="margin-bottom: 0">
+        <li *ngFor="let line of dialogRef.data.additionalData">
+            {{ line }}
+        </li>
+    </ul>
+
+  </fd-dialog-body>
+  <fd-dialog-footer>
+    <fd-dialog-footer-button>
+      <button class="action-button" fd-button (click)="dialogRef.close(false)">
+        {{ data.noLabel }}
+      </button>
+    </fd-dialog-footer-button>
+    <fd-dialog-footer-button *ngIf="data.yesLabel">
+      <button class="action-button" fd-button (click)="dialogRef.close(true)">
+        {{ data.yesLabel }}
+      </button>
+    </fd-dialog-footer-button>
+  </fd-dialog-footer>
+</fd-dialog>

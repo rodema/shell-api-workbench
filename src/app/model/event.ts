@@ -3,4 +3,4 @@ export type Event = {
   name: string,
   receiveOnly: boolean,
   isRegistered: boolean
-}
+};

@@ -1,0 +1,15 @@
+.confirmation-dialog-message {
+  min-width: 320px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+fd-dialog-footer button[fd-button] {
+  margin-left: 8px;
+}
+
+.dialog-custom-overlay-example {
+  background: rgba(255, 255, 255, 0.1);
+}
