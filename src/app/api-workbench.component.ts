@@ -30,7 +30,8 @@ export class ApiWorkbench implements OutputInterface {
   public eventHandler: EventHander[] = new Array();
   public displayError: ErrorMsg;
   private shellSdk: ShellSdk;
-  private payloadTemplateList: PayloadTemplate[];
+  public payloadTemplate: any;
+  public payloadTemplateList: PayloadTemplate[];
   private completePayloadTemplateList: PayloadTemplate[];
 
   constructor(

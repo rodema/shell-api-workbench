@@ -1,6 +1,6 @@
 {
   "name": "shell-api-tester",
-  "version": "0.0.2",
+  "version": "0.0.2-rc1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --disable-host-check",
@@ -42,6 +42,7 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "^2.0.10",
     "@types/node": "~8.9.4",
+    "angular-cli-ghpages": "^1.0.0-rc.2",
     "codelyzer": "^5.0.0",
     "cypress": "^8.5.0",
     "cypress-iframe": "^1.0.1",
