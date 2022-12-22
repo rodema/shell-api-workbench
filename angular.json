@@ -22,7 +22,9 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -43,7 +45,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -61,6 +62,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "start-local": {
+              "baseHref": "/",
+              "sourceMap": {
+                "styles": true,
+                "scripts": true,
+                "vendor": false
+                }
             }
           }
         },
@@ -72,6 +81,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ShellApiTester:build:production"
+            },
+            "start-local": {
+              "browserTarget": "ShellApiTester:build:start-local"
             }
           }
         },
@@ -121,13 +133,8 @@
               "devServerTarget": "ShellApiTester:serve:production"
             }
           }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {}
         }
       }
-    }
-  },
+    }},
   "defaultProject": "ShellApiTester"
 }

@@ -1,6 +1,6 @@
 
   <div>
-    <h2>Shell API workbench extension</h2>
+    <h2>Shell API workbench</h2>
   </div>
 
   <div class="error-container">
@@ -77,15 +77,24 @@
 <textarea id = "output" name="output" rows="20" cols="40" class="input-field" [(ngModel)]="output">
 </textarea>
 <br>
+<div>
 <button  (click)="clearLog()">
   clear log
 </button>
+<button  (click)="exportEvents()">
+  export events
+</button>
+include received events
+<input value="{{includeReceivedEvents}}" type="checkbox" [(ngModel)]="includeReceivedEvents">
+</div>
+
 </div>
 
 <br>
 <file-upload
   (onImportPayload)="addImportedPayload($event)" >
 </file-upload>
+
 <br>
  <br>
  <a href="https://sap.github.io/fsm-shell/#/" target="_blank">SDK Documentation</a>

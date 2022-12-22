@@ -6,3 +6,10 @@ export type PayloadTemplate = {
     customLoaded: boolean,
     direction: 'SENT' | 'RECEIVED'
   };
+
+export type ExportPayloadTemplate = {
+  name: string,
+  description: string,
+  payload: string | object,
+  direction: 'SENT' | 'RECEIVED'
+};

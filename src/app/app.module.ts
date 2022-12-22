@@ -10,20 +10,25 @@ import { ShellPayloadValidationService } from './services/shell-payload-validati
 import { ButtonModule, DialogModule, DialogService } from '@fundamental-ngx/core';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
+import { AppRoutingModule } from './api-workbench.routing.module';
+
+import { StartPage } from './start-page.component';
 
 @NgModule({
   declarations: [
     ApiWorkbench,
     ConfirmationComponent,
     ErrorMessageComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    StartPage
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ButtonModule,
-    DialogModule],
+    DialogModule,
+    AppRoutingModule],
   exports: [
     ConfirmationComponent],
   entryComponents: [
@@ -32,6 +37,6 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
     ShellPayloadValidationService,
     DialogService
   ],
-  bootstrap: [ApiWorkbench]
+  bootstrap: [StartPage]
 })
 export class AppModule { }

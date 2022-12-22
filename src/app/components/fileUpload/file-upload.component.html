@@ -1,1 +1,2 @@
-<input type="file" (change)="fileChange($event)" name="file" />
+<button style="display:block;width:220px; height:25px;" onclick="document.getElementById('getFile').click()">Import payload templates from file</button>
+<input type='file' id="getFile" style="display:none" (change)="fileChange($event)">

@@ -25,20 +25,20 @@ Only events of direction "SENT" will be imported.
     "name": "V1.SET_TITLE",
     "description": "set title hello",
     "payload": "{ \"title\": \"hello\" }",
-    "direction": "SENT"		  
+    "direction": "SENT"
 },
 {
     "name": "V1.SET_TITLE",
     "description": "set title world",
     "payload": "{ \"title\": \"world\" }",
-    "direction": "SENT"		  
+    "direction": "SENT"
 },
   {
     "name": "V1.GET_FEATURE_FLAG",
     "description": "get feature flag geocoding",
     "payload": "{\"key\": \"api-key-authentication-for-geocoding-cpb-33398\", \"defaultValue\": false } ",
-    "direction": "SENT"		  
-}  
+    "direction": "SENT"
+}
 ]
 }
 ```
@@ -62,3 +62,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Changelog
+- 12.2022  Support emitting event during startup by adding 'EventOnStart=XYZ' to the URL
