@@ -4,7 +4,7 @@ import { ApiWorkbench } from './api-workbench.component';
 
 const routes: Routes = [
   {
-    path: ':EventOnStart',    // Route with Parameter
+    path: 'EventOnStart/:eventName',    // Route with Parameter
     component: ApiWorkbench
   },
   {

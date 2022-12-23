@@ -39,7 +39,7 @@ export class ApiWorkbench implements OutputInterface, EventCollectorInterface {
 
   private eventCollector: ExportPayloadTemplate[] = new Array();
 
-  private urlParamRunEventOnStart = 'EventOnStart';
+  private urlParamRunEventName = 'eventName';
 
   constructor(
     private shellPayloadValidationService: ShellPayloadValidationService,
@@ -117,37 +117,39 @@ export class ApiWorkbench implements OutputInterface, EventCollectorInterface {
     this.shellSdk = ShellSdk.init(parent, '*');
     this.shellSdk.setValidator(this.shellPayloadValidationService);
 
-    /*
-    this.route.params.subscribe(params => {
-      console.log('inside route parameter subscriber');
-      // In a real app: dispatch action to load the details here.
-   });
-   */
-
     // Check if we got a URL parameter to start an event directly
-//    this.route.queryParamMap.subscribe((params) => {
       this.route.params.subscribe(params => {
-      const urlParam = params[this.urlParamRunEventOnStart];
+      const urlParam = params[this.urlParamRunEventName];
       console.log('inside parameter subscriber');
       if (urlParam !== undefined) {
         console.log('parameter ' + urlParam);
-        // check if we found the event name in the list of events,
-        // otherwise use fallback GetContext
-        let startEvent = this.apiAllEventList.find(eventElement => { eventElement.id === urlParam })
         let startEventName :string;
         let startEventPayload :PayloadTemplate;
+        const startEventNames :string[] = new Array();
+        const startEventPayloads :PayloadTemplate[] = new Array();
+
+        // GetContext needs to be called in any case because otherwise the loadindecator will not stop
+        startEventName = SHELL_EVENTS.Version1.REQUIRE_CONTEXT;
+        startEventPayload = this.completePayloadTemplateList.find(element => element.name === SHELL_EVENTS.Version1.REQUIRE_CONTEXT);
+        startEventNames.push(startEventName);
+        startEventPayloads.push(startEventPayload);
+
+        // check if we found the event name in the list of events,
+        let startEvent = this.apiAllEventList.find(eventElement => eventElement.id === urlParam )
         if (startEvent !== undefined) {
           startEventName = startEvent.id;
           startEventPayload = this.completePayloadTemplateList.find(element => element.name === startEventName);
-        } else {
-          startEventName = SHELL_EVENTS.Version1.REQUIRE_CONTEXT;
-          startEventPayload = this.completePayloadTemplateList.find(element => element.name === SHELL_EVENTS.Version1.REQUIRE_CONTEXT);
+          startEventNames.push(startEventName);
+          startEventPayloads.push(startEventPayload);
         }
+
         // register event handler for the provided event name
-        this.apiSentEvent = startEventName;
-        this.runRegister();
-        this.cmdPayload = startEventPayload.payload;
-        this.runCmd();
+        for (let i=0; i<startEventNames.length; i++){
+           this.apiSentEvent = startEventNames[i];
+           this.runRegister();
+           this.cmdPayload = startEventPayloads[i].payload;
+           this.runCmd();
+        }
       }
     }
     );
